@@ -7,9 +7,9 @@ var eslint = require('gulp-eslint');
 var files = ['test/*.js', '*.js', '!node_modules/**', '!**.json'];
 
 gulp.task('mocha', function() {
-  return gulp.src('test/*.js').pipe(mocha());
+  return gulp.src('test/*.js').pipe(mocha({reporter: 'default'}));
 });
-
+//this is a comment
 gulp.task('eslint', function() {
   return gulp.src(files)
     .pipe(eslint())
@@ -17,6 +17,8 @@ gulp.task('eslint', function() {
     .pipe(eslint.failAfterError());
 });
 
-gulp.task('default', function() {
-  gulp.watch(files, ['eslint', 'mocha']);
+gulp.task('default', ['watch', 'eslint', 'mocha']);
+
+gulp.task('watch', function() {
+  return gulp.watch(files, ['eslint', 'mocha'])
 });
