@@ -7,7 +7,7 @@ var eslint = require('gulp-eslint');
 var files = ['test/*.js', '*.js', '!node_modules/**', '!**.json'];
 
 gulp.task('mocha', function() {
-  return gulp.src('test/*.js').pipe(mocha({reporter: 'default'}));
+  return gulp.src('test/*.js').pipe(mocha({reporter: 'nyan'}));
 });
 //this is a comment
 gulp.task('eslint', function() {
